@@ -14,7 +14,7 @@ from orchestration.state import RiskAgentState
 from orchestration.nodes import risk_assessment_node
 from orchestration.explanation_node import explanation_node
 from orchestration.memory_node import memory_update_node
-from agents.memory import memory
+from agents.memory_reasoner import memory_reasoner
 
 
 def decision_node(state: RiskAgentState):
@@ -22,9 +22,13 @@ def decision_node(state: RiskAgentState):
 
     src_ip = state.get("src_ip")
 
+    memory_reason = "No memory history found."
+
     if src_ip:
-        if memory.repeated_attack(src_ip):
-            score += 0.20
+        memory_result = memory_reasoner.analyze(src_ip)
+
+        score += memory_result["risk_boost"]
+        memory_reason = memory_result["reason"]
 
     score = min(score, 1.0)
 
@@ -41,6 +45,7 @@ def decision_node(state: RiskAgentState):
         "risk_score": score,
         "action": action,
         "reason": f"Adaptive risk score {score:.4f} processed by decision node.",
+        "memory_reason": memory_reason,
     }
 
 
