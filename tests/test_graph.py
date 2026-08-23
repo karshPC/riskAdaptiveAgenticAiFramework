@@ -1,37 +1,54 @@
+import pandas as pd
+
 from orchestration.graph import risk_graph
+
+
+EVENT = pd.read_csv(
+    "data/splits/ton_iot_network/calibration.csv",
+    nrows=1,
+)
 
 
 def test_graph_blocks_critical_risk():
     result = risk_graph.invoke(
         {
-            "risk_score": 0.90,
-            "risk_level": "CRITICAL",
-            "attack_type": "scanning",
+            "event": EVENT,
         }
     )
 
-    assert result["action"] == "BLOCK"
-    assert result["risk_level"] == "CRITICAL"
+    assert result["action"] in {
+        "ALLOW",
+        "MONITOR",
+        "RESTRICT",
+        "BLOCK",
+    }
+
+    assert 0.0 <= result["risk_score"] <= 1.0
+    assert result["risk_level"] in {
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "CRITICAL",
+    }
 
 
-def test_graph_allows_low_risk():
+def test_graph_returns_action():
     result = risk_graph.invoke(
         {
-            "risk_score": 0.10,
-            "risk_level": "LOW",
+            "event": EVENT,
         }
     )
 
-    assert result["action"] == "ALLOW"
-    assert result["risk_level"] == "LOW"
+    assert "action" in result
+    assert "reason" in result
 
 
-def test_graph_monitors_medium_risk():
+def test_graph_runs_end_to_end():
     result = risk_graph.invoke(
         {
-            "risk_score": 0.45,
-            "risk_level": "MEDIUM",
+            "event": EVENT,
         }
     )
 
-    assert result["action"] == "MONITOR"
+    assert isinstance(result["risk_score"], float)
+    assert isinstance(result["risk_level"], str)

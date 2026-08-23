@@ -1,9 +1,11 @@
 from __future__ import annotations
 
-from typing import Optional, TypedDict
+from typing import Any, Optional, TypedDict
 
 
 class RiskAgentState(TypedDict, total=False):
+    event: Any
+
     risk_score: float
     risk_level: str
 

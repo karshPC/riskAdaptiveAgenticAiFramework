@@ -11,13 +11,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from orchestration.state import RiskAgentState
-
-
-def risk_assessment_node(state: RiskAgentState):
-    return {
-        "risk_score": state.get("risk_score", 0.0),
-        "risk_level": state.get("risk_level", "LOW"),
-    }
+from orchestration.nodes import risk_assessment_node
 
 
 def decision_node(state: RiskAgentState):
