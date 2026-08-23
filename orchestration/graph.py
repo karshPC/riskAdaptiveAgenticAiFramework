@@ -14,10 +14,19 @@ from orchestration.state import RiskAgentState
 from orchestration.nodes import risk_assessment_node
 from orchestration.explanation_node import explanation_node
 from orchestration.memory_node import memory_update_node
+from agents.memory import memory
 
 
 def decision_node(state: RiskAgentState):
     score = state["risk_score"]
+
+    src_ip = state.get("src_ip")
+
+    if src_ip:
+        if memory.repeated_attack(src_ip):
+            score += 0.20
+
+    score = min(score, 1.0)
 
     if score >= 0.80:
         action = "BLOCK"
@@ -29,8 +38,9 @@ def decision_node(state: RiskAgentState):
         action = "ALLOW"
 
     return {
+        "risk_score": score,
         "action": action,
-        "reason": f"Risk score {score:.4f} processed by decision node.",
+        "reason": f"Adaptive risk score {score:.4f} processed by decision node.",
     }
 
 
