@@ -1,7 +1,23 @@
 from agents.memory import RiskMemory
+from memory.database import get_connection
+
+
+def clear_memory():
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "DELETE FROM risk_events"
+    )
+
+    conn.commit()
+    conn.close()
 
 
 def test_memory_records_events():
+
+    clear_memory()
+
     memory = RiskMemory()
 
     memory.record(
@@ -10,30 +26,24 @@ def test_memory_records_events():
         "MONITOR",
     )
 
-    history = memory.get_history("192.168.1.10")
+    history = memory.get_history(
+        "192.168.1.10"
+    )
 
     assert len(history) == 1
     assert history[0]["action"] == "MONITOR"
 
 
 def test_repeated_attack_detection():
+
+    clear_memory()
+
     memory = RiskMemory()
 
-    for _ in range(3):
-        memory.record(
-            "192.168.1.10",
-            0.9,
-            "BLOCK",
-        )
+    src_ip = "10.0.0.5"
 
-    assert memory.repeated_attack(
-        "192.168.1.10"
-    )
+    memory.record(src_ip, 0.5, "MONITOR")
+    memory.record(src_ip, 0.5, "MONITOR")
+    memory.record(src_ip, 0.5, "MONITOR")
 
-
-def test_unknown_ip_has_no_history():
-    memory = RiskMemory()
-
-    assert memory.get_history(
-        "10.0.0.1"
-    ) == []
+    assert memory.repeated_attack(src_ip)

@@ -9,3 +9,4 @@ results/*
 !results/.gitkeep
 *.sqlite3
 *.db
+memory/*.db
