@@ -17,6 +17,7 @@ from orchestration.memory_node import memory_update_node
 from agents.memory_reasoner import memory_reasoner
 from agents.threat_intelligence import threat_intelligence_agent
 from agents.escalation import escalation_agent
+from agents.response import response_agent
 
 
 def decision_node(state: RiskAgentState):
@@ -82,6 +83,11 @@ def build_risk_graph():
     )
 
     graph.add_node(
+        "response",
+        response_agent,
+    )
+
+    graph.add_node(
         "explainer",
         explanation_node,
     )
@@ -105,6 +111,11 @@ def build_risk_graph():
 
     graph.add_edge(
         "escalation",
+        "response",
+    )
+
+    graph.add_edge(
+        "response",
         "explainer",
     )
 

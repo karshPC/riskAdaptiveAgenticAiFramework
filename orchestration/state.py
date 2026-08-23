@@ -24,3 +24,5 @@ class RiskAgentState(TypedDict, total=False):
     memory_reason: str
     severity: str
     escalation_reason: str
+
+    response_action: str
