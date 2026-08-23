@@ -23,11 +23,18 @@ NUMERIC_FIELDS = {
 }
 
 
-def normalize_event(event: NetworkEvent) -> pd.DataFrame:
+def normalize_event(event):
     """
-    Convert NetworkEvent into dataframe format
+    Convert NetworkEvent or TON-IoT dataframe rows into dataframe format
     compatible with downstream feature processing.
     """
+
+    if isinstance(event, pd.DataFrame):
+        normalized = event.copy()
+
+        normalized = normalized.fillna("-")
+
+        return normalized
 
     data: Dict[str, Any] = event.model_dump()
 
