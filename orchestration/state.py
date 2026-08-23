@@ -19,3 +19,4 @@ class RiskAgentState(TypedDict, total=False):
 
     action: str
     reason: str
+    explanation: str
