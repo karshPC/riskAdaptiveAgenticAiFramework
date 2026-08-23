@@ -1,0 +1,44 @@
+{
+  "dataset": "TON_IoT",
+  "source_file": "/Users/karsh/Desktop/riskAdaptive/data/ton_iot/Train_Test_datasets/Train_Test_Network_dataset/train_test_network.csv",
+  "source_sha256": "26ddc513552de36de6428b2e578efaed2b57504c716dfba847cc0109a64e1974",
+  "random_seed": 42,
+  "test_size": 0.2,
+  "calibration_size_requested": 0.2,
+  "original_rows": 190474,
+  "rows_after_deduplication": 190474,
+  "calibration_rows": 152379,
+  "test_rows": 38095,
+  "duplicates_removed": 0,
+  "stratification_column": "type",
+  "label_column": "label",
+  "leakage_report": {
+    "overlapping_row_fingerprints": 0,
+    "calibration_rows": 152379,
+    "test_rows": 38095
+  },
+  "calibration_distribution": {
+    "normal": 33632,
+    "scanning": 16000,
+    "ddos": 15994,
+    "injection": 15971,
+    "password": 15889,
+    "dos": 15193,
+    "backdoor": 14969,
+    "xss": 12110,
+    "ransomware": 11788,
+    "mitm": 833
+  },
+  "test_distribution": {
+    "normal": 8408,
+    "scanning": 4000,
+    "ddos": 3999,
+    "injection": 3993,
+    "password": 3972,
+    "dos": 3799,
+    "backdoor": 3742,
+    "xss": 3027,
+    "ransomware": 2947,
+    "mitm": 208
+  }
+}
