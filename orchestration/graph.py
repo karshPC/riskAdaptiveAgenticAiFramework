@@ -12,6 +12,7 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from orchestration.state import RiskAgentState
 from orchestration.nodes import risk_assessment_node
+from orchestration.explanation_node import explanation_node
 
 
 def decision_node(state: RiskAgentState):
@@ -45,6 +46,11 @@ def build_risk_graph():
         decision_node,
     )
 
+    graph.add_node(
+        "explainer",
+        explanation_node,
+    )
+
     graph.set_entry_point("risk_assessment")
 
     graph.add_edge(
@@ -54,6 +60,11 @@ def build_risk_graph():
 
     graph.add_edge(
         "decision",
+        "explainer",
+    )
+
+    graph.add_edge(
+        "explainer",
         END,
     )
 
