@@ -7,9 +7,65 @@
         "label": "attack"
     },
     {
+        "src_ip": "10.0.0.101",
+        "dst_ip": "10.0.0.1",
+        "protocol": "TCP",
+        "attack_type": "malware",
+        "label": "attack"
+    },
+    {
+        "src_ip": "10.0.0.102",
+        "dst_ip": "10.0.0.1",
+        "protocol": "UDP",
+        "attack_type": "ddos",
+        "label": "attack"
+    },
+    {
+        "src_ip": "10.0.0.103",
+        "dst_ip": "10.0.0.1",
+        "protocol": "TCP",
+        "attack_type": "intrusion",
+        "label": "attack"
+    },
+    {
+        "src_ip": "10.0.0.104",
+        "dst_ip": "10.0.0.1",
+        "protocol": "TCP",
+        "attack_type": "scan",
+        "label": "attack"
+    },
+    {
         "src_ip": "10.0.0.20",
         "dst_ip": "10.0.0.1",
         "protocol": "TCP",
+        "attack_type": "normal",
+        "label": "benign"
+    },
+    {
+        "src_ip": "10.0.0.21",
+        "dst_ip": "10.0.0.1",
+        "protocol": "UDP",
+        "attack_type": "normal",
+        "label": "benign"
+    },
+    {
+        "src_ip": "10.0.0.22",
+        "dst_ip": "10.0.0.1",
+        "protocol": "TCP",
+        "attack_type": "normal",
+        "label": "benign"
+    },
+    {
+        "src_ip": "10.0.0.23",
+        "dst_ip": "10.0.0.1",
+        "protocol": "TCP",
+        "attack_type": "normal",
+        "label": "benign"
+    },
+    {
+        "src_ip": "10.0.0.24",
+        "dst_ip": "10.0.0.1",
+        "protocol": "UDP",
         "attack_type": "normal",
         "label": "benign"
     }

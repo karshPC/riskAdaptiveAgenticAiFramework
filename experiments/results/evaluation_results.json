@@ -1,32 +1,178 @@
-[
-    {
-        "input": {
-            "src_ip": "10.0.0.99",
-            "dst_ip": "10.0.0.1",
-            "protocol": "TCP",
-            "attack_type": "scan",
-            "label": "attack"
+{
+    "metrics": {
+        "confusion_matrix": {
+            "TP": 5,
+            "TN": 5,
+            "FP": 0,
+            "FN": 0
         },
-        "risk_score": 0.5391172484293504,
-        "action": "MONITOR",
-        "severity": "LOW",
-        "response_action": "Enhanced monitoring enabled.",
-        "explanation": "High risk detected with score 0.5391.\n\nSecurity Decision Explanation\n\nRisk Score: 0.5391\nRisk Level: HIGH\nDecision: MONITOR\nSeverity: LOW\n\nReasoning:\n- Memory analysis: No memory history found.\n- Escalation: Escalation generated. No memory history found.\n\nResponse: Enhanced monitoring enabled.",
-        "latency_seconds": 1.1757450103759766
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "false_positive_rate": 0.0
     },
-    {
-        "input": {
-            "src_ip": "10.0.0.20",
-            "dst_ip": "10.0.0.1",
-            "protocol": "TCP",
-            "attack_type": "normal",
-            "label": "benign"
+    "average_latency_seconds": 0.14462103843688964,
+    "samples": [
+        {
+            "input": {
+                "src_ip": "10.0.0.99",
+                "dst_ip": "10.0.0.1",
+                "protocol": "TCP",
+                "attack_type": "scan",
+                "label": "attack"
+            },
+            "prediction": "attack",
+            "risk_score": 0.75,
+            "action": "RESTRICT",
+            "severity": "HIGH",
+            "response_action": "Traffic rate limit applied.",
+            "explanation": "High risk detected with score 0.7500.\n\nSecurity Decision Explanation\n\nRisk Score: 0.7500\nRisk Level: HIGH\nDecision: RESTRICT\nSeverity: HIGH\n\nReasoning:\n- Memory analysis: No memory history found.\n- Escalation: Escalation generated. No memory history found.\n\nResponse: Traffic rate limit applied.",
+            "latency_seconds": 1.189479112625122
         },
-        "risk_score": 0.5391172484293504,
-        "action": "MONITOR",
-        "severity": "LOW",
-        "response_action": "Enhanced monitoring enabled.",
-        "explanation": "High risk detected with score 0.5391.\n\nSecurity Decision Explanation\n\nRisk Score: 0.5391\nRisk Level: HIGH\nDecision: MONITOR\nSeverity: LOW\n\nReasoning:\n- Memory analysis: No memory history found.\n- Escalation: Escalation generated. No memory history found.\n\nResponse: Enhanced monitoring enabled.",
-        "latency_seconds": 0.012652873992919922
-    }
-]
+        {
+            "input": {
+                "src_ip": "10.0.0.101",
+                "dst_ip": "10.0.0.1",
+                "protocol": "TCP",
+                "attack_type": "malware",
+                "label": "attack"
+            },
+            "prediction": "attack",
+            "risk_score": 0.95,
+            "action": "BLOCK",
+            "severity": "CRITICAL",
+            "response_action": "Firewall block rule generated.",
+            "explanation": "Critical risk detected with score 0.9500.\n\nSecurity Decision Explanation\n\nRisk Score: 0.9500\nRisk Level: CRITICAL\nDecision: BLOCK\nSeverity: CRITICAL\n\nReasoning:\n- Memory analysis: No memory history found.\n- Escalation: Escalation generated. No memory history found.\n\nResponse: Firewall block rule generated.",
+            "latency_seconds": 0.0241239070892334
+        },
+        {
+            "input": {
+                "src_ip": "10.0.0.102",
+                "dst_ip": "10.0.0.1",
+                "protocol": "UDP",
+                "attack_type": "ddos",
+                "label": "attack"
+            },
+            "prediction": "attack",
+            "risk_score": 0.85,
+            "action": "BLOCK",
+            "severity": "CRITICAL",
+            "response_action": "Firewall block rule generated.",
+            "explanation": "Critical risk detected with score 0.8500.\n\nSecurity Decision Explanation\n\nRisk Score: 0.8500\nRisk Level: CRITICAL\nDecision: BLOCK\nSeverity: CRITICAL\n\nReasoning:\n- Memory analysis: No memory history found.\n- Escalation: Escalation generated. No memory history found.\n\nResponse: Firewall block rule generated.",
+            "latency_seconds": 0.023433208465576172
+        },
+        {
+            "input": {
+                "src_ip": "10.0.0.103",
+                "dst_ip": "10.0.0.1",
+                "protocol": "TCP",
+                "attack_type": "intrusion",
+                "label": "attack"
+            },
+            "prediction": "attack",
+            "risk_score": 0.9,
+            "action": "BLOCK",
+            "severity": "CRITICAL",
+            "response_action": "Firewall block rule generated.",
+            "explanation": "Critical risk detected with score 0.9000.\n\nSecurity Decision Explanation\n\nRisk Score: 0.9000\nRisk Level: CRITICAL\nDecision: BLOCK\nSeverity: CRITICAL\n\nReasoning:\n- Memory analysis: No memory history found.\n- Escalation: Escalation generated. No memory history found.\n\nResponse: Firewall block rule generated.",
+            "latency_seconds": 0.023509740829467773
+        },
+        {
+            "input": {
+                "src_ip": "10.0.0.104",
+                "dst_ip": "10.0.0.1",
+                "protocol": "TCP",
+                "attack_type": "scan",
+                "label": "attack"
+            },
+            "prediction": "attack",
+            "risk_score": 0.75,
+            "action": "RESTRICT",
+            "severity": "HIGH",
+            "response_action": "Traffic rate limit applied.",
+            "explanation": "High risk detected with score 0.7500.\n\nSecurity Decision Explanation\n\nRisk Score: 0.7500\nRisk Level: HIGH\nDecision: RESTRICT\nSeverity: HIGH\n\nReasoning:\n- Memory analysis: No memory history found.\n- Escalation: Escalation generated. No memory history found.\n\nResponse: Traffic rate limit applied.",
+            "latency_seconds": 0.0241546630859375
+        },
+        {
+            "input": {
+                "src_ip": "10.0.0.20",
+                "dst_ip": "10.0.0.1",
+                "protocol": "TCP",
+                "attack_type": "normal",
+                "label": "benign"
+            },
+            "prediction": "benign",
+            "risk_score": 0.05,
+            "action": "ALLOW",
+            "severity": "LOW",
+            "response_action": "No response action required.",
+            "explanation": "Low risk detected with score 0.0500.\n\nSecurity Decision Explanation\n\nRisk Score: 0.0500\nRisk Level: LOW\nDecision: ALLOW\nSeverity: LOW\n\nReasoning:\n- Memory analysis: No memory history found.\n- Escalation: Escalation generated. No memory history found.\n\nResponse: No response action required.",
+            "latency_seconds": 0.024932146072387695
+        },
+        {
+            "input": {
+                "src_ip": "10.0.0.21",
+                "dst_ip": "10.0.0.1",
+                "protocol": "UDP",
+                "attack_type": "normal",
+                "label": "benign"
+            },
+            "prediction": "benign",
+            "risk_score": 0.05,
+            "action": "ALLOW",
+            "severity": "LOW",
+            "response_action": "No response action required.",
+            "explanation": "Low risk detected with score 0.0500.\n\nSecurity Decision Explanation\n\nRisk Score: 0.0500\nRisk Level: LOW\nDecision: ALLOW\nSeverity: LOW\n\nReasoning:\n- Memory analysis: No memory history found.\n- Escalation: Escalation generated. No memory history found.\n\nResponse: No response action required.",
+            "latency_seconds": 0.025684356689453125
+        },
+        {
+            "input": {
+                "src_ip": "10.0.0.22",
+                "dst_ip": "10.0.0.1",
+                "protocol": "TCP",
+                "attack_type": "normal",
+                "label": "benign"
+            },
+            "prediction": "benign",
+            "risk_score": 0.05,
+            "action": "ALLOW",
+            "severity": "LOW",
+            "response_action": "No response action required.",
+            "explanation": "Low risk detected with score 0.0500.\n\nSecurity Decision Explanation\n\nRisk Score: 0.0500\nRisk Level: LOW\nDecision: ALLOW\nSeverity: LOW\n\nReasoning:\n- Memory analysis: No memory history found.\n- Escalation: Escalation generated. No memory history found.\n\nResponse: No response action required.",
+            "latency_seconds": 0.06216311454772949
+        },
+        {
+            "input": {
+                "src_ip": "10.0.0.23",
+                "dst_ip": "10.0.0.1",
+                "protocol": "TCP",
+                "attack_type": "normal",
+                "label": "benign"
+            },
+            "prediction": "benign",
+            "risk_score": 0.05,
+            "action": "ALLOW",
+            "severity": "LOW",
+            "response_action": "No response action required.",
+            "explanation": "Low risk detected with score 0.0500.\n\nSecurity Decision Explanation\n\nRisk Score: 0.0500\nRisk Level: LOW\nDecision: ALLOW\nSeverity: LOW\n\nReasoning:\n- Memory analysis: No memory history found.\n- Escalation: Escalation generated. No memory history found.\n\nResponse: No response action required.",
+            "latency_seconds": 0.02436208724975586
+        },
+        {
+            "input": {
+                "src_ip": "10.0.0.24",
+                "dst_ip": "10.0.0.1",
+                "protocol": "UDP",
+                "attack_type": "normal",
+                "label": "benign"
+            },
+            "prediction": "benign",
+            "risk_score": 0.05,
+            "action": "ALLOW",
+            "severity": "LOW",
+            "response_action": "No response action required.",
+            "explanation": "Low risk detected with score 0.0500.\n\nSecurity Decision Explanation\n\nRisk Score: 0.0500\nRisk Level: LOW\nDecision: ALLOW\nSeverity: LOW\n\nReasoning:\n- Memory analysis: No memory history found.\n- Escalation: Escalation generated. No memory history found.\n\nResponse: No response action required.",
+            "latency_seconds": 0.0243680477142334
+        }
+    ]
+}
