@@ -1,0 +1,5 @@
+attack_type,samples,detection_rate,avg_risk
+backdoor,20000,100.0,99.63
+mitm,1043,88.21,76.01
+normal,10000,0.06,10.13
+ransomware,20000,98.73,78.37

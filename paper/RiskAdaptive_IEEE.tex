@@ -1,0 +1,68 @@
+\documentclass[conference]{IEEEtran}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{booktabs}
+
+\title{RiskAdaptive: A Risk-Aware Intrusion Detection and Adaptive Response Framework Using Machine Learning}
+
+\author{
+\IEEEauthorblockN{Utkarsh Sharma}
+\IEEEauthorblockA{
+Department of Computer Science and Engineering\\
+Chandigarh University\\
+India
+}
+}
+
+\begin{document}
+
+\maketitle
+
+
+\begin{abstract}
+
+The increasing complexity of modern cyber threats requires security systems capable of not only detecting malicious activities but also making context-aware response decisions. Traditional intrusion detection systems primarily focus on binary classification of network events and lack mechanisms for assessing attack severity and selecting appropriate mitigation actions.
+
+This paper presents RiskAdaptive, a risk-aware intrusion detection and response framework that integrates machine learning based attack detection with a dynamic risk assessment engine. The proposed framework utilizes a Random Forest classifier to estimate attack probabilities from network traffic characteristics and combines detection confidence with attack-specific severity weights to generate a normalized risk score. Based on the calculated risk level, the framework automatically categorizes threats into low, medium, and high severity levels and recommends adaptive actions including allow, alert, and block.
+
+Experimental evaluation on the TON_IoT network dataset demonstrates that the detection module achieves an accuracy of 99.27\% and an F1-score of 99.54\%. The proposed risk assessment layer further enables contextual security decisions by transforming model predictions into actionable responses. The results demonstrate that RiskAdaptive provides an effective approach toward intelligent and automated cybersecurity response systems.
+
+\end{abstract}
+
+
+\begin{IEEEkeywords}
+
+Intrusion Detection System, Machine Learning, Risk Assessment, Adaptive Security, Random Forest, Cybersecurity, Threat Response
+
+\end{IEEEkeywords}
+
+
+\section{Introduction}
+
+
+\section{Related Work}
+
+
+\section{Proposed RiskAdaptive Framework}
+
+
+\section{Methodology}
+
+
+\section{Experimental Setup}
+
+
+\section{Results and Discussion}
+
+
+\section{Conclusion}
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+
+\end{document}
