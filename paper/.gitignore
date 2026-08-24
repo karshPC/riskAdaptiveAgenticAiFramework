@@ -1,0 +1,13 @@
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Generated
+*.log
+.ipynb_checkpoints/
+
+# Large datasets
+data/raw/
+data/**/*.csv
