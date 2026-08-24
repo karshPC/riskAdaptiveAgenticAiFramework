@@ -1,0 +1,58 @@
+Existing IoT intrusion detection research has extensively explored
+machine learning and deep learning approaches for identifying malicious
+network activities. Traditional machine learning based IDS approaches
+have demonstrated strong classification capability; however, most
+existing methods primarily focus on attack detection without providing
+context-aware prioritization of security events.
+
+Alsaedi et al. introduced the TON\_IoT telemetry dataset, enabling
+evaluation of machine learning approaches for IoT and industrial IoT
+security scenarios \cite{alsaeedi2020toniot}. Several studies have
+investigated machine learning and deep learning based intrusion
+detection models. Shone et al. proposed a deep learning approach for
+network intrusion detection using representation learning techniques
+\cite{shone2018deep}. Similarly, Vinayakumar et al. demonstrated the
+effectiveness of deep neural architectures for large-scale intrusion
+detection problems \cite{vinayakumar2019deep}.
+
+Ensemble learning and anomaly detection approaches have also been
+widely explored. Mirsky et al. proposed Kitsune, an ensemble of
+autoencoders designed for online network intrusion detection
+\cite{mirsky2018kitsune}. Although these approaches improve detection
+performance, they generally do not incorporate security risk estimation
+or automated response prioritization.
+
+Recent research has explored explainable AI and intelligent security
+analytics to improve operational usefulness. Ahmad et al. investigated
+machine learning based intrusion detection with explainability
+mechanisms \cite{ahmad2021explainable}. However, existing approaches
+still lack an integrated framework combining detection, risk scoring,
+severity estimation, and decision support.
+
+\begin{table}[H]
+\caption{Comparison of RiskAdaptive with Existing Approaches}
+\centering
+\begin{tabular}{p{2cm}p{1.3cm}p{1.3cm}p{1.3cm}p{1.3cm}}
+\toprule
+\textbf{Approach} & 
+\textbf{Detection} &
+\textbf{Risk Score} &
+\textbf{Severity} &
+\textbf{Response Support}\\
+\midrule
+ML based IDS \cite{ahmed2016survey} & Yes & No & Limited & No\\
+TON\_IoT ML Models \cite{alsaeedi2020toniot} & Yes & No & No & No\\
+Deep Learning IDS \cite{vinayakumar2019deep} & Yes & No & No & No\\
+Kitsune \cite{mirsky2018kitsune} & Yes & No & No & No\\
+RiskAdaptive & Yes & Yes & Yes & Yes\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+Unlike existing IDS approaches, RiskAdaptive introduces an additional
+risk-aware decision layer that converts detection outputs into
+actionable security priorities. The proposed framework therefore
+bridges the gap between intrusion detection and autonomous security
+operations by combining threat identification, risk estimation, and
+severity-based prioritization.
