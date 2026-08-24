@@ -1,0 +1,16 @@
+[
+    {
+        "src_ip": "10.0.0.99",
+        "dst_ip": "10.0.0.1",
+        "protocol": "TCP",
+        "attack_type": "scan",
+        "label": "attack"
+    },
+    {
+        "src_ip": "10.0.0.20",
+        "dst_ip": "10.0.0.1",
+        "protocol": "TCP",
+        "attack_type": "normal",
+        "label": "benign"
+    }
+]

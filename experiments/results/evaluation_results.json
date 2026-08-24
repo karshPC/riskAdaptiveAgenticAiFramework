@@ -1,0 +1,32 @@
+[
+    {
+        "input": {
+            "src_ip": "10.0.0.99",
+            "dst_ip": "10.0.0.1",
+            "protocol": "TCP",
+            "attack_type": "scan",
+            "label": "attack"
+        },
+        "risk_score": 0.5391172484293504,
+        "action": "MONITOR",
+        "severity": "LOW",
+        "response_action": "Enhanced monitoring enabled.",
+        "explanation": "High risk detected with score 0.5391.\n\nSecurity Decision Explanation\n\nRisk Score: 0.5391\nRisk Level: HIGH\nDecision: MONITOR\nSeverity: LOW\n\nReasoning:\n- Memory analysis: No memory history found.\n- Escalation: Escalation generated. No memory history found.\n\nResponse: Enhanced monitoring enabled.",
+        "latency_seconds": 1.1757450103759766
+    },
+    {
+        "input": {
+            "src_ip": "10.0.0.20",
+            "dst_ip": "10.0.0.1",
+            "protocol": "TCP",
+            "attack_type": "normal",
+            "label": "benign"
+        },
+        "risk_score": 0.5391172484293504,
+        "action": "MONITOR",
+        "severity": "LOW",
+        "response_action": "Enhanced monitoring enabled.",
+        "explanation": "High risk detected with score 0.5391.\n\nSecurity Decision Explanation\n\nRisk Score: 0.5391\nRisk Level: HIGH\nDecision: MONITOR\nSeverity: LOW\n\nReasoning:\n- Memory analysis: No memory history found.\n- Escalation: Escalation generated. No memory history found.\n\nResponse: Enhanced monitoring enabled.",
+        "latency_seconds": 0.012652873992919922
+    }
+]
