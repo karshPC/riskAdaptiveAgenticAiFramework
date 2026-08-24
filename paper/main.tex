@@ -1,0 +1,75 @@
+\documentclass[conference]{IEEEtran}
+
+\IEEEoverridecommandlockouts
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{enumitem}
+
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, backgrounds, fit}
+
+\setlist{itemsep=1pt, topsep=3pt, parsep=0pt}
+
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.8}
+\renewcommand{\dblfloatpagefraction}{0.8}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{RiskAdaptive: An Agentic AI Framework for Risk-Aware Intrusion Detection and Security Prioritization in Edge-IoT Networks}
+
+\author{
+\IEEEauthorblockN{Utkarsh Sharma}
+\IEEEauthorblockA{
+\textit{University Institute of Engineering}\\
+\textit{Chandigarh University}\\
+Mohali, Punjab, India\\
+sharmautkarsh2992@gmail.com}
+}
+
+\maketitle
+
+\begin{abstract}
+The rapid expansion of Edge-IoT deployments has introduced complex security challenges due to device heterogeneity, distributed architectures, limited computational resources, and increasing cyber attack sophistication. Traditional intrusion detection systems primarily focus on binary attack classification and lack contextual risk prioritization required for automated incident response. This paper presents RiskAdaptive, an agentic AI-based framework that integrates intrusion detection with dynamic risk assessment for Edge-IoT security environments. The proposed framework combines machine learning based threat identification with a risk-aware decision layer that evaluates attack severity, asset impact, and contextual threat factors. The system is evaluated using the TON\_IoT network telemetry dataset and compared against conventional machine learning baselines including Logistic Regression and Random Forest. Experimental results demonstrate that RiskAdaptive achieves 99.27\% accuracy, 99.54\% F1-score, and 99.94\% precision while providing additional risk prioritization capabilities beyond conventional IDS classification. Attack-specific analysis demonstrates effective identification of major threat categories including ransomware, backdoor, and man-in-the-middle attacks. The proposed approach establishes a foundation for autonomous, explainable, and risk-aware security operations in distributed Edge-IoT environments.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Agentic AI, Edge-IoT Security, Intrusion Detection System, Risk Assessment, TON\_IoT Dataset, Machine Learning, Cybersecurity Automation
+\end{IEEEkeywords}
+
+\section{Introduction}
+\input{sections/introduction}
+
+\section{Related Work}
+\input{sections/related_work}
+
+\section{Proposed Methodology}
+\input{sections/methodology}
+
+\section{Experimental Setup}
+\input{sections/experiments}
+
+\section{Results and Discussion}
+\input{sections/results}
+
+\section{Conclusion}
+\input{sections/conclusion}
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}
