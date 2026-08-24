@@ -1,0 +1,77 @@
+\subsection{Overall Performance Evaluation}
+
+The performance of RiskAdaptive was evaluated against conventional
+machine learning baselines using the TON\_IoT network telemetry
+dataset. Logistic Regression and Random Forest models were considered
+as baseline intrusion detection approaches.
+
+\begin{table}[H]
+\caption{Performance Comparison with Baseline Models}
+\centering
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Model} &
+\textbf{Accuracy} &
+\textbf{Precision} &
+\textbf{Recall} &
+\textbf{F1-score}\\
+\midrule
+Logistic Regression & 98.87\% & 99.30\% & 99.25\% & 99.28\%\\
+Random Forest & 99.27\% & 99.94\% & 99.15\% & 99.54\%\\
+RiskAdaptive & 99.27\% & 99.94\% & 99.15\% & 99.54\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+The results demonstrate that RiskAdaptive maintains competitive
+classification performance while extending conventional IDS capability
+through risk-aware analysis. Unlike traditional classifiers that
+produce only attack labels, the proposed framework additionally
+generates security priorities based on estimated risk and severity.
+
+
+\subsection{Attack-Specific Analysis}
+
+To evaluate robustness across different threat categories, the proposed
+framework was analyzed against multiple attack scenarios including
+backdoor, ransomware, and man-in-the-middle attacks.
+
+Backdoor attacks achieved high detection capability with elevated risk
+scores, indicating effective identification of severe attack patterns.
+Ransomware traffic was also successfully detected with high confidence,
+demonstrating the capability of RiskAdaptive to prioritize impactful
+security events.
+
+Man-in-the-middle attacks showed comparatively lower detection
+performance due to their stealth characteristics and traffic similarity
+with legitimate communication patterns. This highlights the challenge
+of detecting low-visibility attacks in IoT environments.
+
+
+\subsection{Risk Prioritization Capability}
+
+Beyond detection accuracy, RiskAdaptive provides an additional
+decision-support layer by categorizing detected events according to
+severity levels. The framework separates security events into HIGH,
+MEDIUM, and LOW risk categories, enabling analysts to prioritize
+critical incidents.
+
+This capability addresses a limitation of conventional IDS systems,
+where every detected attack is generally treated with equal priority.
+By incorporating contextual risk scoring, RiskAdaptive improves the
+practical usability of automated security monitoring.
+
+
+\subsection{Discussion}
+
+The experimental findings indicate that combining machine learning
+based intrusion detection with agentic risk analysis provides a more
+complete security workflow. While baseline models demonstrate strong
+classification performance, they lack mechanisms for contextual
+decision making.
+
+RiskAdaptive extends existing IDS approaches by transforming detection
+outputs into actionable security intelligence. The framework therefore
+provides a bridge between automated attack detection and intelligent
+incident response for Edge-IoT environments.
