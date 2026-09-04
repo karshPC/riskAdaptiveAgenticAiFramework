@@ -25,6 +25,11 @@ def risk_assessment_node(state):
         return {
             "risk_score": result["risk_score"],
             "risk_level": result["risk_level"],
+            "ml_score": result["ml_score"],
+            "rule_score": result["rule_score"],
+            "rule_level": result["rule_level"],
+            "ml_weight": result["ml_weight"],
+            "rule_weight": result["rule_weight"],
         }
 
 
@@ -57,6 +62,11 @@ def risk_assessment_node(state):
         return {
             "risk_score": result["risk_score"],
             "risk_level": result["risk_level"],
+            "ml_score": result["ml_score"],
+            "rule_score": result["rule_score"],
+            "rule_level": result["rule_level"],
+            "ml_weight": result["ml_weight"],
+            "rule_weight": result["rule_weight"],
         }
 
     except Exception:

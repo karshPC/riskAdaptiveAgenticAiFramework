@@ -2,6 +2,7 @@ import pandas as pd
 import pytest
 
 from agents.risk_engine import assess_risk
+from agents.risk_fusion import fuse_risk_scores
 from agents.risk_levels import classify_risk
 
 
@@ -26,6 +27,14 @@ def test_risk_engine_returns_valid_result():
         "HIGH",
         "CRITICAL",
     }
+    assert result["ml_weight"] == 1.0
+    assert result["rule_weight"] == 0.0
+    assert "rule_score" in result
+
+
+def test_default_fusion_preserves_ml_score_but_accepts_auditable_rule_score():
+    assert fuse_risk_scores(0.82, 0.35) == pytest.approx(0.82)
+    assert fuse_risk_scores(0.82, 0.35, ml_weight=0.6) == pytest.approx(0.632)
 
 
 def test_risk_level_boundaries():

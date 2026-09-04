@@ -18,28 +18,43 @@ from agents.memory_reasoner import memory_reasoner
 from agents.threat_intelligence import threat_intelligence_agent
 from agents.escalation import escalation_agent
 from agents.response import response_agent
+from agents.risk_levels import classify_risk
+from agents.incident_response_agent import incident_response_agent, safety_guardian
 
 
 def decision_node(state: RiskAgentState):
     score = state["risk_score"]
 
+    mode = state.get(
+        "mode",
+        "ML_only"
+    )
+
     src_ip = state.get("src_ip")
 
-    memory_reason = "No memory history found."
-    threat_reason = "No threat intelligence match found."
+    memory_reason = "Memory disabled."
+    threat_reason = "Threat intelligence disabled."
+    memory_boost = 0.0
+    threat_boost = 0.0
 
-    if src_ip:
-        memory_result = memory_reasoner.analyze(src_ip)
+    if mode in [
+        "Hybrid_Memory_Threat"
+    ]:
+        if src_ip:
+            memory_result = memory_reasoner.analyze(src_ip)
 
-        score += memory_result["risk_boost"]
-        memory_reason = memory_result["reason"]
+            memory_boost = memory_result["risk_boost"]
+            score += memory_boost
+            memory_reason = memory_result["reason"]
 
-        threat_result = threat_intelligence_agent.analyze(src_ip)
+            threat_result = threat_intelligence_agent.analyze(src_ip)
 
-        score += threat_result["threat_boost"]
-        threat_reason = threat_result["threat_reason"]
+            threat_boost = threat_result["threat_boost"]
+            score += threat_boost
+            threat_reason = threat_result["threat_reason"]
 
     score = min(score, 1.0)
+    risk_level = classify_risk(score)
 
     if score >= 0.80:
         action = "BLOCK"
@@ -52,11 +67,22 @@ def decision_node(state: RiskAgentState):
 
     return {
         "risk_score": score,
+        "risk_level": risk_level,
         "action": action,
-        "reason": f"Adaptive risk score {score:.4f} processed by decision node.",
+        "reason": f"Adaptive risk score {score:.4f} processed by {mode}.",
         "memory_reason": memory_reason,
         "threat_reason": threat_reason,
+        "memory_boost": memory_boost,
+        "threat_boost": threat_boost,
     }
+
+
+def agent_investigation_node(state: RiskAgentState):
+    return incident_response_agent.investigate(state)
+
+
+def safety_guardian_node(state: RiskAgentState):
+    return safety_guardian.validate(state)
 
 
 def build_risk_graph():
@@ -68,8 +94,18 @@ def build_risk_graph():
     )
 
     graph.add_node(
+        "agent_investigation",
+        agent_investigation_node,
+    )
+
+    graph.add_node(
         "decision",
         decision_node,
+    )
+
+    graph.add_node(
+        "safety_guardian",
+        safety_guardian_node,
     )
 
     graph.add_node(
@@ -96,11 +132,21 @@ def build_risk_graph():
 
     graph.add_edge(
         "risk_assessment",
+        "agent_investigation",
+    )
+
+    graph.add_edge(
+        "agent_investigation",
         "decision",
     )
 
     graph.add_edge(
         "decision",
+        "safety_guardian",
+    )
+
+    graph.add_edge(
+        "safety_guardian",
         "memory_update",
     )
 

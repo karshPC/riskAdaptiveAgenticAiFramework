@@ -16,6 +16,7 @@ def test_repeated_attack_increases_risk():
         {
             "risk_score": 0.65,
             "src_ip": src_ip,
+            "mode": "Hybrid_Memory_Threat",
         }
     )
 

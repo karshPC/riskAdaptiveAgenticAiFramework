@@ -15,6 +15,7 @@ def test_threat_intelligence_increases_risk():
         {
             "risk_score": 0.55,
             "src_ip": "10.20.30.40",
+            "mode": "Hybrid_Memory_Threat",
         }
     )
 

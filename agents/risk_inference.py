@@ -5,61 +5,53 @@ from pathlib import Path
 import joblib
 import pandas as pd
 
+
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-PREPROCESSOR_PATH = (
-    PROJECT_ROOT
-    / "preprocessing/artifacts/"
-    "ton_iot_network_preprocessor.joblib"
-)
-
-MODEL_PATH = PROJECT_ROOT / "results/risk_scorer.joblib"
+MODEL_PATH = PROJECT_ROOT / "results/rf_ids_model.joblib"
 
 EXCLUDED_COLUMNS = {
     "label",
     "type",
     "_row_fingerprint",
+    "src_ip",
+    "dst_ip",
 }
 
 
-def load_artifacts():
-    preprocessor_artifact = joblib.load(PREPROCESSOR_PATH)
-    risk_artifact = joblib.load(MODEL_PATH)
-
-    return (
-        preprocessor_artifact["preprocessor"],
-        risk_artifact["model"],
-        risk_artifact["risk_min"],
-        risk_artifact["risk_max"],
-    )
+def load_artifact():
+    return joblib.load(MODEL_PATH)
 
 
 def calculate_risk(row: pd.DataFrame) -> float:
-    (
-        preprocessor,
-        model,
-        risk_min,
-        risk_max,
-    ) = load_artifacts()
+    if len(row) != 1:
+        raise ValueError("calculate_risk expects exactly one input row")
 
-    feature_columns = [
-        column
-        for column in row.columns
-        if column not in EXCLUDED_COLUMNS
-    ]
+    artifact = load_artifact()
 
-    X = preprocessor.transform(row[feature_columns])
+    model = artifact["model"]
+    features = artifact["features"]
 
-    decision_score = float(model.decision_function(X)[0])
-
-    raw_risk = -decision_score
-
-    normalized_risk = (
-        (raw_risk - risk_min)
-        / (risk_max - risk_min)
+    X = row.drop(
+        columns=list(EXCLUDED_COLUMNS),
+        errors="ignore",
     )
 
-    return float(max(0.0, min(1.0, normalized_risk)))
+    X = pd.get_dummies(
+        X,
+        dummy_na=True,
+    )
+
+    X = X.reindex(
+        columns=features,
+        fill_value=0,
+    )
+
+    probability = float(
+        model.predict_proba(X)[0, 1]
+    )
+
+    return max(0.0, min(1.0, probability))
 
 
 if __name__ == "__main__":
@@ -68,13 +60,15 @@ if __name__ == "__main__":
         / "data/splits/ton_iot_network/calibration.csv"
     )
 
-    sample = pd.read_csv(calibration_path, nrows=1)
+    sample = pd.read_csv(
+        calibration_path,
+        nrows=1,
+    )
 
     risk = calculate_risk(sample)
 
     print("=" * 80)
-    print("RISK INFERENCE TEST")
+    print("RANDOM FOREST RISK INFERENCE TEST")
     print("=" * 80)
-    print("Input rows:", len(sample))
-    print("Risk score:", risk)
-    print("Risk range valid:", 0.0 <= risk <= 1.0)
+    print("RF probability:", risk)
+    print("Valid:", 0.0 <= risk <= 1.0)

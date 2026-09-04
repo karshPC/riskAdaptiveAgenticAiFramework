@@ -10,6 +10,12 @@ def generate_explanation(
     severity: str = "",
     escalation_reason: str = "",
     response_action: str = "",
+    ml_score: float | None = None,
+    rule_score: float | None = None,
+    ml_weight: float | None = None,
+    rule_weight: float | None = None,
+    memory_boost: float = 0.0,
+    threat_boost: float = 0.0,
 ) -> str:
 
     reasons = []
@@ -27,6 +33,18 @@ def generate_explanation(
         f"- {item}" for item in reasons
     )
 
+    audit_lines = []
+    if ml_score is not None:
+        audit_lines.append(f"ML score: {ml_score:.4f}")
+    if rule_score is not None:
+        audit_lines.append(f"Rule-derived score: {rule_score:.4f}")
+    if ml_weight is not None and rule_weight is not None:
+        audit_lines.append(
+            f"Fusion weights: ML={ml_weight:.2f}, rule={rule_weight:.2f}"
+        )
+    audit_lines.append(f"Memory boost: {memory_boost:.4f}")
+    audit_lines.append(f"Threat-intelligence boost: {threat_boost:.4f}")
+
     return (
         f"{risk_level.title()} risk detected with score {risk_score:.4f}.\n\n"
         "Security Decision Explanation\n\n"
@@ -34,6 +52,9 @@ def generate_explanation(
         f"Risk Level: {risk_level}\n"
         f"Decision: {action}\n"
         f"Severity: {severity}\n\n"
+        "Audit signals:\n"
+        + "\n".join(f"- {item}" for item in audit_lines)
+        + "\n\n"
         "Reasoning:\n"
         f"{reason_text}\n\n"
         f"Response: {response_action}"

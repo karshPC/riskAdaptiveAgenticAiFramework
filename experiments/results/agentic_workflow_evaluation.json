@@ -1,0 +1,71 @@
+{
+  "evaluation_type": "transparent scenario-based workflow evaluation",
+  "planner": "deterministic_adaptive",
+  "scenario_count": 4,
+  "tool_selection_recall": 1.0,
+  "unnecessary_tool_calls": 0,
+  "average_steps": 3.5,
+  "response_selection_accuracy": 1.0,
+  "policy_violation_rate": 0.0,
+  "scenarios": [
+    {
+      "name": "clear_benign",
+      "selected_tools": [
+        "evaluate_policy"
+      ],
+      "steps": 1,
+      "proposed_action": "ALLOW",
+      "validated_action": "ALLOW",
+      "expected_action": "ALLOW",
+      "policy_compliant": true,
+      "human_approval_required": false
+    },
+    {
+      "name": "ambiguous_event",
+      "selected_tools": [
+        "inspect_event_features",
+        "evaluate_policy"
+      ],
+      "steps": 2,
+      "proposed_action": "MONITOR",
+      "validated_action": "MONITOR",
+      "expected_action": "MONITOR",
+      "policy_compliant": true,
+      "human_approval_required": false
+    },
+    {
+      "name": "repeated_suspicious_source",
+      "selected_tools": [
+        "inspect_event_features",
+        "get_source_history",
+        "query_threat_intelligence",
+        "evaluate_policy",
+        "request_human_approval"
+      ],
+      "steps": 5,
+      "proposed_action": "RESTRICT",
+      "validated_action": "RESTRICT",
+      "expected_action": "RESTRICT",
+      "policy_compliant": true,
+      "human_approval_required": true
+    },
+    {
+      "name": "critical_asset_incident",
+      "selected_tools": [
+        "inspect_event_features",
+        "get_source_history",
+        "query_threat_intelligence",
+        "check_asset_criticality",
+        "evaluate_policy",
+        "request_human_approval"
+      ],
+      "steps": 6,
+      "proposed_action": "BLOCK",
+      "validated_action": "BLOCK",
+      "expected_action": "BLOCK",
+      "policy_compliant": true,
+      "human_approval_required": true
+    }
+  ],
+  "scope": "Scenario checks validate implementation behavior. They are not a benchmark of LLM reasoning quality or real-world autonomous containment."
+}

@@ -1,0 +1,66 @@
+\subsection{Dataset Description}
+
+The proposed RiskAdaptive framework is evaluated using the \texttt{TON-IoT}
+network telemetry dataset, which contains diverse IoT network traffic
+samples representing both normal and malicious activities. The dataset
+includes multiple attack categories, enabling evaluation of the
+framework under different threat scenarios.
+
+The experiments consider attack detection capability as well as
+risk-based prioritization performance across different attack types.
+
+
+\subsection{Experimental Configuration}
+
+The dataset is processed through preprocessing and feature
+transformation stages before model training and evaluation. The
+intrusion detection model is trained using labeled network traffic
+samples, while the risk assessment module operates on the generated
+detection outputs.
+
+The evaluation pipeline consists of three stages:
+
+\begin{enumerate}
+\item Network traffic preprocessing and feature preparation.
+\item Attack classification using machine learning based IDS.
+\item Risk scoring and severity assignment using the RiskAdaptive
+engine.
+\end{enumerate}
+
+
+\subsection{Baseline Comparison}
+
+To evaluate the effectiveness of the proposed approach, comparisons
+are performed against conventional machine learning based IDS models.
+The baseline models include Logistic Regression and Random Forest
+classifiers.
+
+The comparison focuses on standard classification metrics including
+accuracy, precision, recall, F1-score, false positive rate (FPR), and
+false negative rate (FNR).
+
+
+\subsection{Evaluation Metrics}
+
+The following metrics are used for performance evaluation:
+
+\begin{itemize}
+\item Accuracy: Measures the overall correctness of predictions.
+\item Precision: Represents the proportion of correctly identified
+attacks among predicted attacks.
+\item Recall: Measures the ability to detect actual attack instances.
+\item F1-score: Represents the harmonic mean of precision and recall.
+\item False Positive Rate: Measures incorrectly generated alerts.
+\item False Negative Rate: Measures missed attack instances.
+\end{itemize}
+
+
+\subsection{Attack Scenario Evaluation}
+
+In addition to overall classification performance, attack-specific
+analysis is conducted for different threat categories including
+backdoor, ransomware, and man-in-the-middle attacks.
+
+This evaluation demonstrates the capability of RiskAdaptive to assign
+different risk levels according to attack characteristics rather than
+treating all detected events uniformly.

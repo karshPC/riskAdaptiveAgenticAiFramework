@@ -1,0 +1,72 @@
+The rapid adoption of Internet of Things (IoT) technologies has
+transformed modern computing environments by enabling interconnected
+systems across industrial automation, healthcare, smart cities, and
+critical infrastructure. However, the expansion of IoT deployments
+towards distributed Edge-IoT architectures has significantly increased
+the cybersecurity attack surface. Unlike conventional enterprise
+networks, Edge-IoT environments consist of heterogeneous devices with
+limited computational capabilities, dynamic communication patterns,
+and decentralized deployment characteristics.
+
+Traditional intrusion detection systems (IDS) primarily focus on
+identifying whether network activity is malicious or benign. Although
+machine learning based IDS approaches have demonstrated strong
+classification performance, they generally provide limited contextual
+understanding regarding attack severity, asset importance, and
+operational impact. In practical Security Operations Center (SOC)
+environments, analysts require not only detection capability but also
+risk prioritization to determine which alerts require immediate
+response.
+
+Recent research has explored artificial intelligence techniques for
+enhancing IoT security. Dataset-driven approaches such as TON-IoT have
+enabled standardized evaluation of intrusion detection models across
+heterogeneous IoT and industrial environments. Machine learning models
+including Random Forest, Support Vector Machines, and deep learning
+architectures have achieved high detection performance; however, these
+approaches commonly operate as isolated classifiers without integrated
+risk reasoning or response prioritization.
+
+Agentic AI introduces a different perspective by enabling systems to
+coordinate multiple decision-making components for autonomous security
+operations. In cybersecurity applications, agent-based architectures
+can combine threat perception, contextual analysis, risk estimation,
+and response planning. However, existing studies frequently focus on
+either intrusion detection or automated response, leaving a gap in
+integrating accurate detection with adaptive risk assessment for
+Edge-IoT environments.
+
+This paper presents RiskAdaptive, an agentic AI framework that extends
+traditional intrusion detection by incorporating a risk-aware decision
+layer. The proposed system combines machine learning based threat
+identification with contextual risk scoring to classify detected
+events according to operational severity. Unlike conventional IDS
+approaches that terminate after attack classification, RiskAdaptive
+provides additional security intelligence for prioritizing incidents
+and supporting automated security decision workflows.
+
+The major contributions of this work are summarized as follows:
+
+\begin{itemize}
+\item A risk-aware agentic AI framework is proposed for Edge-IoT
+intrusion detection and incident prioritization.
+
+\item A dynamic risk assessment layer is integrated with intrusion
+classification to transform binary detection outputs into
+severity-aware security decisions.
+
+\item Extensive evaluation is performed using the TON-IoT network
+telemetry dataset with comparison against conventional machine
+learning baselines including Logistic Regression and Random Forest.
+
+\item Attack-specific analysis is presented to evaluate detection
+capability and risk distribution across different threat categories.
+\end{itemize}
+
+The remainder of this paper is organized as follows. Section II
+reviews related research in IoT intrusion detection, agentic AI
+security frameworks, and risk-aware cybersecurity approaches. Section
+III presents the proposed RiskAdaptive methodology. Section IV
+describes the experimental setup and evaluation procedure. Section V
+discusses experimental results and findings. Section VI concludes the
+paper and highlights future research directions.

@@ -1,0 +1,322 @@
+[
+    {
+        "mode": "ML_only",
+        "label": "attack",
+        "prediction": "attack",
+        "risk_score": 0.75,
+        "action": "RESTRICT",
+        "latency_seconds": 0.9506440162658691
+    },
+    {
+        "mode": "ML_only",
+        "label": "attack",
+        "prediction": "attack",
+        "risk_score": 0.95,
+        "action": "BLOCK",
+        "latency_seconds": 0.055487871170043945
+    },
+    {
+        "mode": "ML_only",
+        "label": "attack",
+        "prediction": "attack",
+        "risk_score": 0.85,
+        "action": "BLOCK",
+        "latency_seconds": 0.0475468635559082
+    },
+    {
+        "mode": "ML_only",
+        "label": "attack",
+        "prediction": "attack",
+        "risk_score": 0.9,
+        "action": "BLOCK",
+        "latency_seconds": 0.026233911514282227
+    },
+    {
+        "mode": "ML_only",
+        "label": "attack",
+        "prediction": "attack",
+        "risk_score": 0.75,
+        "action": "RESTRICT",
+        "latency_seconds": 0.025307893753051758
+    },
+    {
+        "mode": "ML_only",
+        "label": "benign",
+        "prediction": "benign",
+        "risk_score": 0.05,
+        "action": "ALLOW",
+        "latency_seconds": 0.02522587776184082
+    },
+    {
+        "mode": "ML_only",
+        "label": "benign",
+        "prediction": "benign",
+        "risk_score": 0.05,
+        "action": "ALLOW",
+        "latency_seconds": 0.025786876678466797
+    },
+    {
+        "mode": "ML_only",
+        "label": "benign",
+        "prediction": "benign",
+        "risk_score": 0.05,
+        "action": "ALLOW",
+        "latency_seconds": 0.05796504020690918
+    },
+    {
+        "mode": "ML_only",
+        "label": "benign",
+        "prediction": "benign",
+        "risk_score": 0.05,
+        "action": "ALLOW",
+        "latency_seconds": 0.02503800392150879
+    },
+    {
+        "mode": "ML_only",
+        "label": "benign",
+        "prediction": "benign",
+        "risk_score": 0.05,
+        "action": "ALLOW",
+        "latency_seconds": 0.026273012161254883
+    },
+    {
+        "mode": "Rule_only",
+        "label": "attack",
+        "prediction": "attack",
+        "risk_score": 0.75,
+        "action": "RESTRICT",
+        "latency_seconds": 0.02684497833251953
+    },
+    {
+        "mode": "Rule_only",
+        "label": "attack",
+        "prediction": "attack",
+        "risk_score": 0.95,
+        "action": "BLOCK",
+        "latency_seconds": 0.028124094009399414
+    },
+    {
+        "mode": "Rule_only",
+        "label": "attack",
+        "prediction": "attack",
+        "risk_score": 0.85,
+        "action": "BLOCK",
+        "latency_seconds": 0.024598121643066406
+    },
+    {
+        "mode": "Rule_only",
+        "label": "attack",
+        "prediction": "attack",
+        "risk_score": 0.9,
+        "action": "BLOCK",
+        "latency_seconds": 0.024227142333984375
+    },
+    {
+        "mode": "Rule_only",
+        "label": "attack",
+        "prediction": "attack",
+        "risk_score": 0.75,
+        "action": "RESTRICT",
+        "latency_seconds": 0.024097919464111328
+    },
+    {
+        "mode": "Rule_only",
+        "label": "benign",
+        "prediction": "benign",
+        "risk_score": 0.05,
+        "action": "ALLOW",
+        "latency_seconds": 0.0241091251373291
+    },
+    {
+        "mode": "Rule_only",
+        "label": "benign",
+        "prediction": "benign",
+        "risk_score": 0.05,
+        "action": "ALLOW",
+        "latency_seconds": 0.02381110191345215
+    },
+    {
+        "mode": "Rule_only",
+        "label": "benign",
+        "prediction": "benign",
+        "risk_score": 0.05,
+        "action": "ALLOW",
+        "latency_seconds": 0.024092912673950195
+    },
+    {
+        "mode": "Rule_only",
+        "label": "benign",
+        "prediction": "benign",
+        "risk_score": 0.05,
+        "action": "ALLOW",
+        "latency_seconds": 0.023738861083984375
+    },
+    {
+        "mode": "Rule_only",
+        "label": "benign",
+        "prediction": "benign",
+        "risk_score": 0.05,
+        "action": "ALLOW",
+        "latency_seconds": 0.023662805557250977
+    },
+    {
+        "mode": "Hybrid",
+        "label": "attack",
+        "prediction": "attack",
+        "risk_score": 0.75,
+        "action": "RESTRICT",
+        "latency_seconds": 0.023372650146484375
+    },
+    {
+        "mode": "Hybrid",
+        "label": "attack",
+        "prediction": "attack",
+        "risk_score": 0.95,
+        "action": "BLOCK",
+        "latency_seconds": 0.02342510223388672
+    },
+    {
+        "mode": "Hybrid",
+        "label": "attack",
+        "prediction": "attack",
+        "risk_score": 0.85,
+        "action": "BLOCK",
+        "latency_seconds": 0.0233609676361084
+    },
+    {
+        "mode": "Hybrid",
+        "label": "attack",
+        "prediction": "attack",
+        "risk_score": 0.9,
+        "action": "BLOCK",
+        "latency_seconds": 0.02336597442626953
+    },
+    {
+        "mode": "Hybrid",
+        "label": "attack",
+        "prediction": "attack",
+        "risk_score": 0.75,
+        "action": "RESTRICT",
+        "latency_seconds": 0.023209095001220703
+    },
+    {
+        "mode": "Hybrid",
+        "label": "benign",
+        "prediction": "benign",
+        "risk_score": 0.05,
+        "action": "ALLOW",
+        "latency_seconds": 0.04620003700256348
+    },
+    {
+        "mode": "Hybrid",
+        "label": "benign",
+        "prediction": "benign",
+        "risk_score": 0.05,
+        "action": "ALLOW",
+        "latency_seconds": 0.0334620475769043
+    },
+    {
+        "mode": "Hybrid",
+        "label": "benign",
+        "prediction": "benign",
+        "risk_score": 0.05,
+        "action": "ALLOW",
+        "latency_seconds": 0.030350923538208008
+    },
+    {
+        "mode": "Hybrid",
+        "label": "benign",
+        "prediction": "benign",
+        "risk_score": 0.05,
+        "action": "ALLOW",
+        "latency_seconds": 0.05342507362365723
+    },
+    {
+        "mode": "Hybrid",
+        "label": "benign",
+        "prediction": "benign",
+        "risk_score": 0.05,
+        "action": "ALLOW",
+        "latency_seconds": 0.024999141693115234
+    },
+    {
+        "mode": "Hybrid_Memory_Threat",
+        "label": "attack",
+        "prediction": "attack",
+        "risk_score": 0.75,
+        "action": "RESTRICT",
+        "latency_seconds": 0.024475812911987305
+    },
+    {
+        "mode": "Hybrid_Memory_Threat",
+        "label": "attack",
+        "prediction": "attack",
+        "risk_score": 0.95,
+        "action": "BLOCK",
+        "latency_seconds": 0.02392888069152832
+    },
+    {
+        "mode": "Hybrid_Memory_Threat",
+        "label": "attack",
+        "prediction": "attack",
+        "risk_score": 0.85,
+        "action": "BLOCK",
+        "latency_seconds": 0.024313926696777344
+    },
+    {
+        "mode": "Hybrid_Memory_Threat",
+        "label": "attack",
+        "prediction": "attack",
+        "risk_score": 0.9,
+        "action": "BLOCK",
+        "latency_seconds": 0.024641036987304688
+    },
+    {
+        "mode": "Hybrid_Memory_Threat",
+        "label": "attack",
+        "prediction": "attack",
+        "risk_score": 0.75,
+        "action": "RESTRICT",
+        "latency_seconds": 0.023732900619506836
+    },
+    {
+        "mode": "Hybrid_Memory_Threat",
+        "label": "benign",
+        "prediction": "benign",
+        "risk_score": 0.05,
+        "action": "ALLOW",
+        "latency_seconds": 0.023623943328857422
+    },
+    {
+        "mode": "Hybrid_Memory_Threat",
+        "label": "benign",
+        "prediction": "benign",
+        "risk_score": 0.05,
+        "action": "ALLOW",
+        "latency_seconds": 0.023547887802124023
+    },
+    {
+        "mode": "Hybrid_Memory_Threat",
+        "label": "benign",
+        "prediction": "benign",
+        "risk_score": 0.05,
+        "action": "ALLOW",
+        "latency_seconds": 0.023541927337646484
+    },
+    {
+        "mode": "Hybrid_Memory_Threat",
+        "label": "benign",
+        "prediction": "benign",
+        "risk_score": 0.05,
+        "action": "ALLOW",
+        "latency_seconds": 0.023162126541137695
+    },
+    {
+        "mode": "Hybrid_Memory_Threat",
+        "label": "benign",
+        "prediction": "benign",
+        "risk_score": 0.05,
+        "action": "ALLOW",
+        "latency_seconds": 0.023387908935546875
+    }
+]

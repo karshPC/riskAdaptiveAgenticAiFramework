@@ -13,3 +13,7 @@ def test_explanation_node_returns_explanation():
 
     assert "BLOCK" in result["explanation"]
     assert "Critical" in result["explanation"]
+    assert result["llm_narrative_status"] in {
+        "disabled_no_api_key",
+        "generated",
+    } or result["llm_narrative_status"].startswith("unavailable:")

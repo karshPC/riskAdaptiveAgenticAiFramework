@@ -1,0 +1,72 @@
+{
+    "password": {
+        "samples": 3972,
+        "correct": 3972,
+        "detection_rate": 1.0,
+        "average_risk_score": 0.35,
+        "average_latency_seconds": 0.024688
+    },
+    "normal": {
+        "samples": 8408,
+        "correct": 8408,
+        "detection_rate": 1.0,
+        "average_risk_score": 0.1,
+        "average_latency_seconds": 0.024439
+    },
+    "scanning": {
+        "samples": 4000,
+        "correct": 4000,
+        "detection_rate": 1.0,
+        "average_risk_score": 0.4,
+        "average_latency_seconds": 0.024477
+    },
+    "ddos": {
+        "samples": 3999,
+        "correct": 3999,
+        "detection_rate": 1.0,
+        "average_risk_score": 0.45,
+        "average_latency_seconds": 0.02437
+    },
+    "ransomware": {
+        "samples": 2947,
+        "correct": 2947,
+        "detection_rate": 1.0,
+        "average_risk_score": 0.45,
+        "average_latency_seconds": 0.024551
+    },
+    "dos": {
+        "samples": 3799,
+        "correct": 0,
+        "detection_rate": 0.0,
+        "average_risk_score": 0.1,
+        "average_latency_seconds": 0.024454
+    },
+    "xss": {
+        "samples": 3027,
+        "correct": 3027,
+        "detection_rate": 1.0,
+        "average_risk_score": 0.3,
+        "average_latency_seconds": 0.024483
+    },
+    "mitm": {
+        "samples": 208,
+        "correct": 208,
+        "detection_rate": 1.0,
+        "average_risk_score": 0.4,
+        "average_latency_seconds": 0.024332
+    },
+    "injection": {
+        "samples": 3993,
+        "correct": 3993,
+        "detection_rate": 1.0,
+        "average_risk_score": 0.3,
+        "average_latency_seconds": 0.024426
+    },
+    "backdoor": {
+        "samples": 3742,
+        "correct": 3742,
+        "detection_rate": 1.0,
+        "average_risk_score": 0.45,
+        "average_latency_seconds": 0.024471
+    }
+}
